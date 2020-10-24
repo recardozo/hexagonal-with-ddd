@@ -1,0 +1,17 @@
+server.port: 9020
+
+logging:
+  pattern:
+    console: "%d %highlight(%-5level) %magenta([%t]) %msg%n"
+  level:
+    com.picpay.api.original.OriginalClient: DEBUG
+
+spring:
+  application:
+    name: ddd-hexagonal
+  jackson:
+    property-naming-strategy: SNAKE_CASE
+  data:
+    mongodb:
+      uri: mongodb://localhost:27077/order-database
+

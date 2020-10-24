@@ -1,0 +1,16 @@
+version: '3.7'
+
+services:
+    mongo.ddd.dev:
+      container_name: mongo.ddd.dev
+      image: mongo
+      networks:
+        - bubble
+      ports:
+        - "27077:27017"
+      volumes:
+        - /data/db
+
+networks:
+  bubble:
+    external: true
