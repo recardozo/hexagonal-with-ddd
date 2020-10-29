@@ -18,10 +18,9 @@ public class OrderController {
     private final OrderService orderService;
 
     @PostMapping(produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE)
-    CreateOrderResponse createOrder(@RequestBody final CreateOrderRequest createOrderRequest) {
-        final UUID id = orderService.createOrder(createOrderRequest.getProduct());
+    void createOrder(@RequestBody final CreateOrderRequest createOrderRequest) {
+        orderService.createOrder(createOrderRequest.getProduct());
 
-        return new CreateOrderResponse(id);
     }
 
     @PostMapping(value = "/{id}/products", consumes = MediaType.APPLICATION_JSON_VALUE)

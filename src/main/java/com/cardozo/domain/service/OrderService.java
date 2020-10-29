@@ -4,8 +4,9 @@ import com.cardozo.domain.Product;
 
 import java.util.UUID;
 
+
 public interface OrderService {
-    UUID createOrder(Product product);
+    void createOrder(Product product);
 
     void addProduct(UUID id, Product product);
 

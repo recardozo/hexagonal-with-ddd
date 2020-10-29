@@ -12,8 +12,8 @@ import org.springframework.context.annotation.Configuration;
 @ComponentScan(basePackageClasses = DddHexagonalApplication.class)
 public class BeanConfiguration {
 
-    @Bean
-    OrderService orderService(final OrderRepository orderRepository) {
-        return new DomainOrderService(orderRepository);
-    }
+//    @Bean
+//    OrderService orderService(final OrderRepository orderRepository) {
+//        return new DomainOrderService(orderRepository, notifier);
+//    }
 }

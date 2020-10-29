@@ -1,24 +1,28 @@
 package com.cardozo.domain.service;
 
 import com.cardozo.domain.Order;
+import com.cardozo.domain.OrderWasCreatedEvent;
 import com.cardozo.domain.Product;
+import com.cardozo.domain.event.DomainEventNotifier;
 import com.cardozo.domain.repository.OrderRepository;
+import org.springframework.stereotype.Service;
 
 import java.util.UUID;
 
+@Service
 public class DomainOrderService implements OrderService {
     private final OrderRepository orderRepository;
+    private final DomainEventNotifier notifier;
 
-    public DomainOrderService(final OrderRepository orderRepository) {
+    public DomainOrderService(final OrderRepository orderRepository, DomainEventNotifier notifier) {
         this.orderRepository = orderRepository;
+        this.notifier = notifier;
     }
 
     @Override
-    public UUID createOrder(final Product product) {
+    public void createOrder(final Product product) {
         final Order order = new Order(UUID.randomUUID(), product);
-        orderRepository.save(order);
-
-        return order.getId();
+        notifier.notify(new OrderWasCreatedEvent(order));
     }
 
     @Override
