@@ -9,12 +9,12 @@ import java.util.*;
 @Getter
 @EqualsAndHashCode
 public class Order {
-    private UUID id;
+    private String id;
     private OrderStatus status;
     private List<OrderItem> orderItems;
     private BigDecimal price;
 
-    public Order(final UUID id, final Product product) {
+    public Order(final String id, final Product product) {
         this.id = id;
         this.orderItems = new ArrayList<>(Collections.singletonList(new OrderItem(product)));
         this.status = OrderStatus.CREATED;
@@ -33,7 +33,7 @@ public class Order {
         price = price.add(product.getPrice());
     }
 
-    public void removeOrder(final UUID id) {
+    public void removeOrder(final String id) {
         validateState();
         final OrderItem orderItem = getOrderItem(id);
         orderItems.remove(orderItem);
@@ -41,7 +41,7 @@ public class Order {
         price = price.subtract(orderItem.getPrice());
     }
 
-    private OrderItem getOrderItem(final UUID id) {
+    private OrderItem getOrderItem(final String id) {
         return orderItems.stream()
                 .filter(orderItem -> orderItem.getProductId()
                         .equals(id))

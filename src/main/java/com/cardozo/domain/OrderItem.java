@@ -2,13 +2,14 @@ package com.cardozo.domain;
 
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 
 import java.math.BigDecimal;
-import java.util.UUID;
 @Getter
 @EqualsAndHashCode
+@NoArgsConstructor
 public class OrderItem {
-    private UUID productId;
+    private String productId;
     private BigDecimal price;
 
     public OrderItem(Product product) {
