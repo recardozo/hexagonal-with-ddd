@@ -1,6 +1,8 @@
-package com.cardozo.domain.event;
+package com.cardozo.domain.listeners;
 
 import com.cardozo.domain.Order;
+import com.cardozo.domain.event.DomainEvent;
+import com.cardozo.domain.event.DomainEventListener;
 import com.cardozo.domain.repository.OrderRepository;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
