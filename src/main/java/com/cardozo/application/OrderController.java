@@ -17,7 +17,6 @@ public class OrderController {
     @PostMapping(produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE)
     void createOrder(@RequestBody final CreateOrderRequest createOrderRequest) {
         orderService.createOrder(createOrderRequest.getProduct());
-
     }
 
     @PostMapping(value = "/{id}/products", consumes = MediaType.APPLICATION_JSON_VALUE)

@@ -12,5 +12,6 @@ public abstract class DomainEvent extends EventObject {
     public DomainEvent(final Object source) {
         super(source);
     }
+
     public abstract DomainEventType getType();
 }

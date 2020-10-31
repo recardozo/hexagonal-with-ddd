@@ -16,6 +16,6 @@ public class OrderCompletedListener implements DomainEventListener {
     public void onEvent(final DomainEvent domainEvent) {
         Order order = (Order) domainEvent.getSource();
         orderRepository.save(order);
-        log.info("Order was completed ",order);
+        log.info("Order was completed {}",order);
     }
 }
