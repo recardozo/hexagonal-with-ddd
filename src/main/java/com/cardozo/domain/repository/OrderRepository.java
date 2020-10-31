@@ -6,6 +6,6 @@ import java.util.Optional;
 import java.util.UUID;
 
 public interface OrderRepository {
-    Optional<Order> findById(UUID id);
+    Optional<Order> findById(String id);
     void save(Order order);
 }

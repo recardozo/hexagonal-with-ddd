@@ -17,7 +17,7 @@ public class MongoDbOrderRepository implements OrderRepository {
     private final SpringDataMongoOrderRepository orderRepository;
 
     @Override
-    public Optional<Order> findById(final UUID id) {
+    public Optional<Order> findById(final String id) {
         return orderRepository.findById(id);
     }
 
