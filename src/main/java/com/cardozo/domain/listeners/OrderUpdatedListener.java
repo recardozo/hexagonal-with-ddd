@@ -16,8 +16,8 @@ public class OrderUpdatedListener implements DomainEventListener {
 
     @Override
     public void onEvent(final DomainEvent domainEvent) {
-        Order order = (Order) domainEvent.getSource();
+        final Order order = (Order) domainEvent.getSource();
         orderRepository.save(order);
-        log.info("Order was updated {}",order);
+        log.info("Order was updated {}", order);
     }
 }

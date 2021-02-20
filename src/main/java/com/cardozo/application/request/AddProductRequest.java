@@ -10,7 +10,7 @@ import javax.validation.constraints.NotNull;
 @Getter
 public class AddProductRequest {
     @NotNull
-    private Product product;
+    private final Product product;
 
     @JsonCreator
     public AddProductRequest(@JsonProperty("product") final Product product) {
